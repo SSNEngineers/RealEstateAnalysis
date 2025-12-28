@@ -1,0 +1,81 @@
+/* ==================== RESIZE CONTROLS ==================== */
+.resize-control-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    border: 2px solid #0066cc;
+}
+
+.resize-control-section h4 {
+    color: #0066cc;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-resize-toggle {
+    width: 100%;
+    background: linear-gradient(135deg, #0066cc, #0088ff);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-resize-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.btn-resize-toggle.active {
+    background: linear-gradient(135deg, #28a745, #20c997);
+}
+
+.btn-resize-toggle.active:hover {
+    background: linear-gradient(135deg, #218838, #1aa179);
+}
+
+.resize-instructions {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #666;
+    display: none;
+    line-height: 1.5;
+}
+
+.resize-instructions.show {
+    display: block;
+}
+
+.resize-instructions i {
+    color: #28a745;
+    margin-right: 0.5rem;
+}
+
+/* Resize mode cursor styles */
+body.resize-mode-active {
+    cursor: default;
+}
+
+body.resize-mode-active * {
+    cursor: pointer;
+}
+
+body.resize-mode-active .right-panel,
+body.resize-mode-active .right-panel * {
+    cursor: default !important;
+}

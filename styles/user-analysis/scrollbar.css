@@ -1,0 +1,21 @@
+/* ==================== SCROLLBAR ==================== */
+.panel-content::-webkit-scrollbar,
+.poi-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.panel-content::-webkit-scrollbar-track,
+.poi-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.panel-content::-webkit-scrollbar-thumb,
+.poi-list::-webkit-scrollbar-thumb {
+    background: #8B0000;
+    border-radius: 4px;
+}
+
+.panel-content::-webkit-scrollbar-thumb:hover,
+.poi-list::-webkit-scrollbar-thumb:hover {
+    background: #6B0000;
+}

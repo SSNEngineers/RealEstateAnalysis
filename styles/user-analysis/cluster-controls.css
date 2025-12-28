@@ -1,0 +1,178 @@
+/* ==================== CLUSTER CONTROLS ==================== */
+.cluster-controls-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    border: 2px solid #6c757d;
+}
+
+.cluster-controls-section h4 {
+    color: #6c757d;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.button-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+}
+
+.btn-cluster-control {
+    background: white;
+    color: #333;
+    border: 2px solid #ddd;
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
+    min-height: 65px;
+    max-height: 65px;
+    position: relative;
+    overflow: hidden;
+    grid-column: span 1;
+}
+
+.btn-cluster-control::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--btn-color), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.btn-cluster-control:hover::before {
+    transform: translateX(100%);
+}
+
+.btn-cluster-control i {
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
+}
+
+.btn-cluster-control:hover i {
+    transform: scale(1.2);
+}
+
+.btn-cluster-control span {
+    text-align: center;
+    line-height: 1.3;
+    font-size: 0.95rem;
+}
+
+/* Reshape Button - Cyan/Teal */
+.btn-reshape {
+    --btn-color: #17a2b8;
+    border-color: #17a2b8;
+    color: #17a2b8;
+}
+
+.btn-reshape:hover {
+    background: linear-gradient(135deg, #17a2b8, #20c997);
+    color: white;
+    border-color: #17a2b8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(23, 162, 184, 0.4);
+}
+
+.btn-reshape.active {
+    background: linear-gradient(135deg, #17a2b8, #20c997);
+    color: white;
+    border-color: #17a2b8;
+    box-shadow: 0 0 20px rgba(23, 162, 184, 0.6);
+}
+
+/* Rotate Button - Purple */
+.btn-rotate {
+    --btn-color: #6f42c1;
+    border-color: #6f42c1;
+    color: #6f42c1;
+}
+
+.btn-rotate:hover {
+    background: linear-gradient(135deg, #6f42c1, #9b59b6);
+    color: white;
+    border-color: #6f42c1;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(111, 66, 193, 0.4);
+}
+
+.btn-rotate.active {
+    background: linear-gradient(135deg, #6f42c1, #9b59b6);
+    color: white;
+    border-color: #6f42c1;
+    box-shadow: 0 0 20px rgba(111, 66, 193, 0.6);
+}
+
+/* Active state animation */
+.btn-cluster-control.active i {
+    animation: pulseIcon 1.5s ease-in-out infinite;
+}
+
+@keyframes pulseIcon {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.btn-cluster-control:active {
+    transform: translateY(0);
+}
+
+.btn-cluster-control:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-cluster-control:disabled:hover {
+    transform: none;
+    box-shadow: none;
+    background: white;
+    color: #999;
+}
+
+/* Rotate mode cursor */
+body.rotate-mode-active {
+    cursor: default;
+}
+
+body.rotate-mode-active .right-panel,
+body.rotate-mode-active .right-panel * {
+    cursor: default !important;
+}
+
+/* Reshape mode cursor */
+body.reshape-mode-active {
+    cursor: default;
+}
+
+body.reshape-mode-active .right-panel,
+body.reshape-mode-active .right-panel * {
+    cursor: default !important;
+}
+
+/* Highlight selected items in rotate/reshape modes */
+.rotate-mode-active #mapCanvas,
+.reshape-mode-active #mapCanvas {
+    cursor: pointer !important;
+}

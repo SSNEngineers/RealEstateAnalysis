@@ -1,0 +1,516 @@
+/* ==================== WHO WE ARE PAGE ENHANCED STYLES ==================== */
+
+/* Hero Section with Moving Gradient */
+.who-hero {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(139, 0, 0, 0.8)), 
+                url('https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?auto=format&fit=crop&w=1600');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Animated Gradient Overlay */
+.hero-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.moving-gradient {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        rgba(139, 0, 0, 0.3) 0%,
+        rgba(165, 42, 42, 0.3) 25%,
+        transparent 50%,
+        rgba(139, 0, 0, 0.3) 75%,
+        rgba(165, 42, 42, 0.3) 100%
+    );
+    animation: move-gradient 20s linear infinite;
+}
+
+@keyframes move-gradient {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50%, 50%); }
+}
+
+.who-hero .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.who-hero .hero-content p {
+    font-size: 1.5rem;
+    opacity: 0.95;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    color: white;
+    animation: bounce-arrow 2s ease-in-out infinite;
+}
+
+@keyframes bounce-arrow {
+    0%, 100% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(15px); opacity: 0.5; }
+}
+
+/* Content Section with Animated Background */
+.content-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
+    position: relative;
+}
+
+.content-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(139, 0, 0, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 0, 0, 0.02) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: move-grid 30s linear infinite;
+}
+
+@keyframes move-grid {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+/* Split Content Grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 5rem;
+}
+
+/* Section Badge */
+.section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+    animation: badge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 25px rgba(139, 0, 0, 0.4); }
+}
+
+/* Content Text Styling */
+.content-text h2,
+.content-text h3 {
+    color: #8B0000;
+    margin: 2rem 0 1rem;
+    position: relative;
+}
+
+.content-text h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.content-text h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.content-text p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Content Divider */
+.content-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8B0000, transparent);
+}
+
+.content-divider i {
+    color: #FFD700;
+    font-size: 1rem;
+}
+
+/* Feature List with Custom Checkmarks */
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #8B0000, #A52A2A);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.feature-list li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.15);
+}
+
+.feature-list li:hover::before {
+    transform: scaleY(1);
+}
+
+.list-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(165, 42, 42, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.feature-list li:hover .list-icon {
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+}
+
+.list-icon i {
+    color: #8B0000;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.feature-list li:hover .list-icon i {
+    color: white;
+}
+
+/* CTA Box */
+.cta-box {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 10px 40px rgba(139, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.cta-box:hover {
+    transform: scale(1.02);
+}
+
+.cta-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta-icon i {
+    font-size: 2.5rem;
+    color: white;
+    animation: rocket-bounce 2s ease-in-out infinite;
+}
+
+@keyframes rocket-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cta-text {
+    flex: 1;
+    color: white;
+}
+
+.cta-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.cta-text p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cta-button {
+    padding: 1rem 2rem;
+    background: white;
+    color: #8B0000;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.cta-button:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+/* Image Section with Floating Badges */
+.image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.image-wrapper img {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.1);
+}
+
+.image-frame {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    pointer-events: none;
+}
+
+/* Floating Badges */
+.floating-badge {
+    position: absolute;
+    background: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    animation: float-badge 3s ease-in-out infinite;
+}
+
+.floating-badge i {
+    color: #8B0000;
+    font-size: 1.5rem;
+}
+
+.badge-1 {
+    top: 30px;
+    right: -20px;
+    animation-delay: 0s;
+}
+
+.badge-2 {
+    bottom: 30px;
+    left: -20px;
+    animation-delay: 1.5s;
+}
+
+@keyframes float-badge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Technology Section */
+.tech-section {
+    margin-top: 5rem;
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+    border-radius: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.tech-section h2 {
+    text-align: center;
+    color: #8B0000;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    font-weight: 700;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.tech-item {
+    text-align: center;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.tech-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.15);
+}
+
+.tech-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(165, 42, 42, 0.1));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.tech-item:hover .tech-icon {
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    transform: rotate(360deg);
+}
+
+.tech-icon i {
+    font-size: 2.5rem;
+    color: #8B0000;
+    transition: color 0.4s ease;
+}
+
+.tech-item:hover .tech-icon i {
+    color: white;
+}
+
+.tech-item h4 {
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.tech-item p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .who-hero .hero-content h1 { 
+        font-size: 2.5rem; 
+    }
+    .who-hero .hero-content p { 
+        font-size: 1.2rem; 
+    }
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .content-image {
+        order: -1;
+    }
+    .floating-badge {
+        position: static;
+        margin: 1rem auto;
+        justify-content: center;
+        width: fit-content;
+    }
+    .cta-box {
+        flex-direction: column;
+        text-align: center;
+    }
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .who-hero {
+        height: 400px;
+    }
+    .who-hero .hero-content h1 { 
+        font-size: 2rem; 
+    }
+    .content-text h2 {
+        font-size: 2rem;
+    }
+    .tech-grid {
+        grid-template-columns: 1fr;
+    }
+}

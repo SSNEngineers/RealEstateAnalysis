@@ -1,0 +1,18 @@
+/* ==================== HIGHWAY SECTIONS ==================== */
+.highway-section {
+    margin-top: 1.5rem;
+    background: #f0f8ff;
+    border: 2px solid #0066cc;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.route-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+    margin-right: 0.5rem;
+}

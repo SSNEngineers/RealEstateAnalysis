@@ -1,0 +1,65 @@
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+@media (max-width: 1400px) {
+    .button-row {
+        gap: 0.5rem;
+    }
+    
+    .btn-cluster-control {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.8rem;
+        min-height: 58px;
+        max-height: 58px;
+    }
+    
+    .btn-cluster-control i {
+        font-size: 1.3rem;
+    }
+    
+    .btn-cluster-control span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr 350px;
+    }
+    
+    .button-row {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .btn-cluster-control {
+        min-height: 70px;
+    }
+    
+    .category-header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .category-button-row {
+        width: 100%;
+    }
+    
+    .category-control-btn {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .right-panel {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        z-index: 100;
+    }
+}

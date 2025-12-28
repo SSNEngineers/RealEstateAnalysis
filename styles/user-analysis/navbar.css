@@ -1,0 +1,115 @@
+/* ==================== NAVBAR ==================== */
+.navbar {
+    background: linear-gradient(135deg, #8B0000, #A52A2A);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px;
+}
+
+.nav-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-info {
+    background: white;
+    color: #ffc107;
+    border: 2px solid white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: 1rem;
+}
+
+.btn-info:hover {
+    background: #ffc107;
+    color: white;
+    transform: scale(1.1);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-back,
+.btn-export {
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back {
+    background: white;
+    color: #8B0000;
+}
+
+.btn-back:hover {
+    background: #f8f9fa;
+}
+
+.btn-export {
+    background: #28a745;
+    color: white;
+}
+
+.btn-export:hover {
+    background: #218838;
+}
+
+/* How to Use Button */
+.btn-how-to-use {
+    background: white;
+    color: #FF0000;
+    border: 2px solid white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    margin-right: 1rem;
+}
+
+.btn-how-to-use:hover {
+    background: #FF0000;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+}
+
+.btn-how-to-use i {
+    font-size: 18px;
+}

@@ -1,0 +1,22 @@
+/* ==================== INFO SECTIONS ==================== */
+.info-section {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background: #f8f8f8;
+    border-radius: 10px;
+    border-left: 4px solid #8B0000;
+}
+
+.info-section h4 {
+    color: #8B0000;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}
+
+.coord-item {
+    padding: 0.5rem;
+    background: rgb(239, 240, 241);
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    font-size: 0.85rem;
+}

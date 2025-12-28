@@ -1,0 +1,103 @@
+/* ==================== LOADING OVERLAY ==================== */
+.loading-overlay {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.loading-content {
+    text-align: center;
+    color: rgb(255, 255, 255);
+}
+
+.loading-gif {
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.loading-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.loading-content p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* Loading Delay Popup */
+.loading-delay-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+    color: white;
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    z-index: 10001;
+    max-width: 500px;
+    text-align: center;
+    animation: popupBounce 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    border: 3px solid white;
+}
+
+@keyframes popupBounce {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.loading-delay-popup.fade-out {
+    animation: fadeOutPopup 0.5s ease forwards;
+}
+
+@keyframes fadeOutPopup {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+}
+
+.loading-delay-popup h3 {
+    margin: 0 0 15px 0;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.loading-delay-popup h3 i {
+    font-size: 28px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-delay-popup p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 500;
+}

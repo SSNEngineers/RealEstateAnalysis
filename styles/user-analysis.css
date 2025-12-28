@@ -1,0 +1,33 @@
+/* ==================== USER ANALYSIS - MAIN CSS IMPORT FILE ==================== */
+/* This file imports all modular CSS files for better organization */
+
+/* Base styles */
+@import url('./user-analysis/base.css');
+
+/* Layout components */
+@import url('./user-analysis/navbar.css');
+@import url('./user-analysis/loading.css');
+@import url('./user-analysis/main-content.css');
+@import url('./user-analysis/panels.css');
+@import url('./user-analysis/map-container.css');
+
+/* Control sections */
+@import url('./user-analysis/drag-controls.css');
+@import url('./user-analysis/resize-controls.css');
+@import url('./user-analysis/cluster-controls.css');
+@import url('./user-analysis/break-lines.css');
+@import url('./user-analysis/global-controls.css');
+
+/* Info sections */
+@import url('./user-analysis/info-sections.css');
+@import url('./user-analysis/poi-categories.css');
+@import url('./user-analysis/highway-sections.css');
+
+/* UI components */
+@import url('./user-analysis/scrollbar.css');
+@import url('./user-analysis/popups.css');
+@import url('./user-analysis/search-poi.css');
+@import url('./user-analysis/analysis-timer.css');
+
+/* Responsive styles */
+@import url('./user-analysis/responsive.css');

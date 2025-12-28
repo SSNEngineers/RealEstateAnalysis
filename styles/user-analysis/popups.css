@@ -1,0 +1,570 @@
+/* ==================== POPUPS ==================== */
+
+/* Instruction Popup */
+.instruction-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+    animation: fadeInOverlay 0.4s ease;
+}
+
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.instruction-popup {
+    background: white;
+    border-radius: 20px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUpBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+}
+
+@keyframes slideUpBounce {
+    0% {
+        transform: translateY(100px) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+.instruction-popup-header {
+    background: linear-gradient(135deg, #8B0000 0%, #C41E3A 100%);
+    padding: 25px 30px;
+    border-radius: 20px 20px 0 0;
+    color: white;
+    position: relative;
+}
+
+.instruction-popup-header h2 {
+    margin: 0;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.instruction-popup-header h2 i {
+    font-size: 32px;
+    animation: rotateIcon 2s ease-in-out infinite;
+}
+
+@keyframes rotateIcon {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+}
+
+.instruction-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #8B0000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.instruction-popup-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: #f8f9fa;
+}
+
+.instruction-popup-content {
+    padding: 35px;
+}
+
+.instruction-warning {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border-left: 5px solid #ffc107;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.2);
+}
+
+.instruction-warning h3 {
+    color: #856404;
+    margin: 0 0 15px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+}
+
+.instruction-warning h3 i {
+    font-size: 24px;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+.instruction-warning p {
+    margin: 8px 0;
+    color: #856404;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.instruction-section {
+    margin-bottom: 30px;
+}
+
+.instruction-section h3 {
+    color: #8B0000;
+    font-size: 22px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 3px solid #8B0000;
+    padding-bottom: 10px;
+}
+
+.instruction-section h3 i {
+    font-size: 24px;
+}
+
+.instruction-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid #8B0000;
+    transition: all 0.3s ease;
+}
+
+.instruction-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.1);
+}
+
+.instruction-item h4 {
+    color: #333;
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.instruction-item h4 i {
+    color: #8B0000;
+}
+
+.instruction-item ol {
+    margin: 10px 0 0 20px;
+    padding: 0;
+}
+
+.instruction-item li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.instruction-footer {
+    background: #f8f9fa;
+    padding: 20px 35px;
+    border-radius: 0 0 20px 20px;
+    text-align: center;
+}
+
+.instruction-footer button {
+    background: linear-gradient(135deg, #8B0000, #C41E3A);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+}
+
+.instruction-footer button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 0, 0, 0.4);
+}
+
+.instruction-footer button i {
+    margin-right: 8px;
+}
+
+/* Disclaimer Popup */
+.disclaimer-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.disclaimer-popup {
+    background: white;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+    overflow: hidden;
+}
+
+.disclaimer-popup-header {
+    background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+    padding: 25px 30px;
+    color: white;
+    position: relative;
+}
+
+.disclaimer-popup-header h2 {
+    margin: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.disclaimer-popup-header h2 i {
+    font-size: 28px;
+    animation: pulse 2s infinite;
+}
+
+.disclaimer-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #ff9800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.disclaimer-popup-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: #f8f9fa;
+}
+
+.disclaimer-popup-content {
+    padding: 35px;
+}
+
+.disclaimer-message {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border-left: 5px solid #ffc107;
+    padding: 25px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.disclaimer-message i {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 40px;
+    color: #ff9800;
+    opacity: 0.2;
+}
+
+.disclaimer-message p {
+    margin: 0 0 15px 0;
+    color: #856404;
+    font-size: 15px;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+}
+
+.disclaimer-message p:last-child {
+    margin-bottom: 0;
+}
+
+.disclaimer-message p strong {
+    color: #8B0000;
+    font-size: 16px;
+}
+
+.disclaimer-popup-footer {
+    background: #f8f9fa;
+    padding: 20px 35px;
+    text-align: center;
+}
+
+.disclaimer-close-btn {
+    background: linear-gradient(135deg, #ffc107, #ff9800);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.disclaimer-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* How to Use Popup */
+.how-to-use-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.how-to-use-popup {
+    background: white;
+    border-radius: 20px;
+    max-width: 700px;
+    width: 90%;
+    max-height: 80vh;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.how-to-use-popup-header {
+    background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+    padding: 25px 30px;
+    color: white;
+    position: relative;
+}
+
+.how-to-use-popup-header h2 {
+    margin: 0;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.how-to-use-popup-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #FF0000;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.how-to-use-popup-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: #f8f9fa;
+}
+
+.how-to-use-popup-content {
+    padding: 35px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.coming-soon-message {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border-left: 5px solid #ffc107;
+    padding: 20px;
+    border-radius: 10px;
+    color: #856404;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.coming-soon-message i {
+    font-size: 30px;
+    color: #FF0000;
+}
+
+.video-list-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.video-item-placeholder {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    opacity: 0.6;
+    border: 2px dashed #ddd;
+}
+
+.video-thumbnail-placeholder {
+    width: 120px;
+    height: 80px;
+    background: #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.video-thumbnail-placeholder i {
+    font-size: 40px;
+    color: #FF0000;
+}
+
+.video-info-placeholder h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.video-info-placeholder p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.how-to-use-popup-footer {
+    background: #f8f9fa;
+    padding: 20px 35px;
+    text-align: center;
+}
+
+.how-to-use-close-btn {
+    background: linear-gradient(135deg, #FF0000, #CC0000);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.how-to-use-close-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Scrollbar for popups */
+.instruction-popup::-webkit-scrollbar,
+.how-to-use-popup-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.instruction-popup::-webkit-scrollbar-track,
+.how-to-use-popup-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.instruction-popup::-webkit-scrollbar-thumb,
+.how-to-use-popup-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8B0000, #C41E3A);
+    border-radius: 10px;
+}
+
+.instruction-popup::-webkit-scrollbar-thumb:hover,
+.how-to-use-popup-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #A52A2A, #8B0000);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to{
+transform: translateY(0);
+opacity: 1;
+}
+}

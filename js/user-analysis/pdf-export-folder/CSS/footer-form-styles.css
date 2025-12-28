@@ -1,0 +1,440 @@
+/* ==================== PDF FOOTER FORM STYLES ==================== */
+/* js/user-analysis/pdf-export-folder/CSS/footer-form-styles.css */
+
+#pdf-footer-form-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.pdf-form-wrapper {
+    background: white;
+    width: 90%;
+    max-width: 1100px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-height: 900px;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Header Section */
+.pdf-form-header {
+    background: linear-gradient(135deg, #8B0000 0%, #C41E3A 50%, #8B0000 100%);
+    padding: 30px 40px;
+    text-align: center;
+    color: white;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pdf-form-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.3;
+}
+
+.pdf-form-header h2 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    position: relative;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-form-header h2 i {
+    margin-right: 12px;
+    font-size: 26px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.pdf-form-header p {
+    margin: 10px 0 0 0;
+    opacity: 0.95;
+    font-size: 16px;
+    position: relative;
+}
+
+/* Form Content Area */
+.pdf-form-content {
+    flex: 1;
+    padding: 35px;
+    overflow-y: auto;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.pdf-form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Section Cards */
+.pdf-form-section {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.pdf-form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--section-color) 0%, transparent 100%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.pdf-form-section:hover::before {
+    transform: scaleX(1);
+}
+
+.pdf-form-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    border-color: var(--section-color);
+}
+
+/* Agent 1 Styling */
+.pdf-form-section.agent-1 {
+    --section-color: #8B0000;
+}
+
+/* Agent 2 Styling */
+.pdf-form-section.agent-2 {
+    --section-color: #6c757d;
+}
+
+/* Location Styling */
+.pdf-form-section.location {
+    --section-color: #28a745;
+}
+
+/* Section Header */
+.pdf-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 3px solid var(--section-color);
+}
+
+.pdf-section-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--section-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.pdf-form-section:hover .pdf-section-icon {
+    transform: rotate(360deg) scale(1.1);
+}
+
+.pdf-section-title {
+    color: var(--section-color);
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Form Groups */
+.pdf-form-group {
+    margin-bottom: 22px;
+}
+
+.pdf-form-group:last-child {
+    margin-bottom: 0;
+}
+
+.pdf-form-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+}
+
+/* Input Container */
+.pdf-input-container {
+    position: relative;
+}
+
+.pdf-input-container i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--section-color);
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.pdf-input-container textarea + i {
+    top: 18px;
+    transform: none;
+}
+
+/* Input Fields */
+.pdf-form-input {
+    width: 100%;
+    padding: 14px 14px 14px 46px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+    font-family: inherit;
+}
+
+.pdf-form-input:focus {
+    outline: none;
+    border-color: var(--section-color);
+    box-shadow: 0 0 0 4px rgba(var(--section-color-rgb), 0.1);
+    background: white;
+}
+
+.pdf-form-input:focus + i {
+    color: var(--section-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+textarea.pdf-form-input {
+    resize: vertical;
+    min-height: 110px;
+    padding-top: 14px;
+}
+
+/* Footer Buttons Area */
+.pdf-form-footer {
+    background: white;
+    padding: 25px 35px;
+    border-top: 2px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.pdf-form-info {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pdf-form-info i {
+    margin-right: 10px;
+    color: #8B0000;
+    font-size: 18px;
+}
+
+.pdf-form-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+/* Buttons */
+.pdf-form-button {
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.pdf-form-button i {
+    font-size: 16px;
+}
+
+.pdf-form-cancel {
+    background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+    color: white;
+}
+
+.pdf-form-cancel:hover {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(220, 53, 69, 0.4);
+}
+
+.pdf-form-submit {
+    background: linear-gradient(135deg, #8B0000 0%, #C41E3A 100%);
+    color: white;
+}
+
+.pdf-form-submit:hover {
+    background: linear-gradient(135deg, #A52A2A 0%, #8B0000 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 0, 0, 0.5);
+}
+
+.pdf-form-button:active {
+    transform: translateY(0);
+}
+
+/* Scrollbar Styling */
+.pdf-form-content::-webkit-scrollbar {
+    width: 10px;
+}
+
+.pdf-form-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+.pdf-form-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #8B0000 0%, #C41E3A 100%);
+    border-radius: 5px;
+}
+
+.pdf-form-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #A52A2A 0%, #8B0000 100%);
+}
+
+/* Animation for form sections */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pdf-form-section {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.pdf-form-section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.pdf-form-section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.pdf-form-section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* Color Variables */
+.agent-1 {
+    --section-color-rgb: 139, 0, 0;
+}
+
+.agent-2 {
+    --section-color-rgb: 108, 117, 125;
+}
+
+.location {
+    --section-color-rgb: 40, 167, 69;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-form-wrapper {
+        width: 95%;
+        height: 95vh;
+    }
+    
+    .pdf-form-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pdf-form-footer {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .pdf-form-buttons {
+        width: 100%;
+    }
+    
+    .pdf-form-button {
+        flex: 1;
+        justify-content: center;
+    }
+}

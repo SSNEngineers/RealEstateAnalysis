@@ -1,0 +1,90 @@
+/* ==================== BREAK LINES ==================== */
+.break-lines-section {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 10px;
+    border: 2px solid #9b59b6;
+}
+
+.break-lines-section h4 {
+    color: #9b59b6;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-break-lines-toggle {
+    width: 100%;
+    background: linear-gradient(135deg, #9b59b6, #8e44ad);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.btn-break-lines-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(155, 89, 182, 0.4);
+}
+
+.btn-break-lines-toggle.active {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.btn-break-lines-toggle.active:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+.break-lines-instructions {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #666;
+    display: none;
+    line-height: 1.5;
+}
+
+.break-lines-instructions.show {
+    display: block;
+}
+
+.break-lines-instructions i {
+    color: #9b59b6;
+    margin-right: 0.5rem;
+}
+
+.break-lines-instructions kbd {
+    background: #333;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+/* Break lines mode cursor */
+body.break-lines-mode-active {
+    cursor: crosshair !important;
+}
+
+body.break-lines-mode-active * {
+    cursor: crosshair !important;
+}
+
+body.break-lines-mode-active .right-panel,
+body.break-lines-mode-active .right-panel * {
+    cursor: default !important;
+}
