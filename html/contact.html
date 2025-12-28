@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - SSN AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/contact.css">
+    <link rel="stylesheet" href="/styles/animations.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">
+                
+                <div class="nav-logo-text">
+                    <div class="nav-logo-main">SSN AI</div>
+                    
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="who-we-are.html">Who We Are</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html" class="active">Contact Us</a></li>
+                <li><a href="signup.html" class="btn-signup">User Sign-In</a></li>
+                <li><a href="login.html" class="btn-login">Admin Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero with Animated Icons -->
+    <section class="contact-hero">
+        <div class="hero-icon-grid">
+            <i class="fas fa-envelope hero-float-icon"></i>
+            <i class="fas fa-phone hero-float-icon"></i>
+            <i class="fas fa-map-marker-alt hero-float-icon"></i>
+            <i class="fas fa-comments hero-float-icon"></i>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="animate-fade-in-up">Get In Touch</h1>
+            <p class="animate-fade-in-up delay-1">We'd love to hear from you. Reach out with any questions or feedback.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section with Enhanced Layout -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                <!-- Contact Form -->
+                <div class="contact-form-box animate-on-scroll" data-delay="0">
+                    <div class="form-header">
+                        <div class="form-icon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <h2>Send Us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you shortly</p>
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="fullname">
+                                <i class="fas fa-user"></i>
+                                Full Name *
+                            </label>
+                            <input type="text" id="fullname" name="fullname" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i>
+                                Email Address *
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Address
+                            </label>
+                            <input type="text" id="address" name="address" placeholder="Your address (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                <i class="fas fa-tag"></i>
+                                Subject *
+                            </label>
+                            <input type="text" id="subject" name="subject" required placeholder="What is this about?">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">
+                                <i class="fas fa-comment-dots"></i>
+                                Message *
+                            </label>
+                            <textarea id="description" name="description" rows="5" required placeholder="Tell us more..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary submit-btn">
+                            <span>Submit Message</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info with Enhanced Design -->
+                <div class="contact-info animate-on-scroll" data-delay="200">
+                    <div class="info-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1472289065668-ce650ac443d2?auto=format&fit=crop&w=600"
+                            alt="Contact Us">
+                        <div class="image-overlay">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                    </div>
+                    <div class="info-content">
+                        <h3>Connect With Us</h3>
+                        <div class="info-divider"></div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <a href="tel:9195791490">(919) 703-0222</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <a href="mailto:takeoff@ssncorporation.com">contact@ssncorporation.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Address</h4>
+                                <p>5540 Centerview Dr, Ste #304 Raleigh, NC 27606</p>
+                            </div>
+                        </div>
+
+                        <div class="social-section">
+                            <h4>Follow Us</h4>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/company/ssn-corporation" class="social-link linkedin">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://ssncorporation.com/" target="_blank" rel="noopener noreferrer" class="social-link website">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                                <a href="https://www.facebook.com/people/SSN-Corporation/61566782237516/" class="social-link facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="hours-box">
+                            <h4><i class="far fa-clock"></i> Business Hours</h4>
+                            <div class="hours-grid">
+                                <div class="hour-item">
+                                    <span class="day">Monday — Friday</span>
+                                    <span class="time">8 AM — 5 PM EST</span>
+                                </div>
+                                <div class="hour-item">
+                                    <span class="day">Saturday & Sunday</span>
+                                    <span class="time">Closed</span>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Contact Options -->
+            <div class="quick-contact-section animate-on-scroll" data-delay="400">
+                <h3>Quick Contact Options</h3>
+                <div class="quick-options">
+                    <div class="quick-option">
+                        <div class="option-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h4>FAQs</h4>
+                        <p>Find quick answers</p>
+                    </div>
+                    <div class="quick-option">
+                        <div class="option-icon">
+                            <i class="fas fa-life-ring"></i>
+                        </div>
+                        <h4>Support</h4>
+                        <p>Get technical help</p>
+                    </div>
+                    <div class="quick-option">
+                        <div class="option-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Live Chat</h4>
+                        <p>Chat with our team</p>
+                    </div>
+                    <div class="quick-option">
+                        <div class="option-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>Schedule Call</h4>
+                        <p>Book a meeting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-map-marked-alt"></i> SSN AI</h3>
+                    <p>Your partner in intelligent real estate analysis.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="who-we-are.html">Who We Are</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p>Monday—Friday: 9 AM — 6 PM EST</p>
+                    <p>Saturday: 10 AM — 2 PM EST</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SSN AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/animations.js"></script>
+    <script src="/js/page-animations.js"></script>
+    <script src="/js/contact.js"></script>
+</body>
+
+</html>

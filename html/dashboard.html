@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SSN AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/dashboard.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/index.html" class="nav-logo">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>SSN AI</span>
+            </a>
+            <div class="nav-user">
+                <span class="user-name" id="userName">User</span>
+                <button class="btn-logout" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard-section">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h1>Welcome to Your Dashboard</h1>
+                <p>Start analyzing real estate locations</p>
+            </div>
+
+            <div class="dashboard-actions">
+                <div class="action-card" onclick="showAnalysisForm()">
+                    <div class="action-icon">
+                        <i class="fas fa-search-location"></i>
+                    </div>
+                    <h3>Analyze Site Location</h3>
+                    <p>Search and analyze any location with POI data</p>
+                    <button class="btn">
+                        Start Analysis <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Modal -->
+    <div id="analysisModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeAnalysisForm()">&times;</button>
+            <div class="modal-header">
+                <h2><i class="fas fa-map-marker-alt"></i> Site Location Analysis</h2>
+                <p>Enter location details to begin analysis</p>
+            </div>
+
+            <form id="locationForm">
+                <div class="form-toggle">
+                    <button type="button" class="toggle-btn active" onclick="toggleAddressMode('separate')">
+                        <i class="fas fa-th"></i> Separate Fields
+                    </button>
+                    <button type="button" class="toggle-btn" onclick="toggleAddressMode('full')">
+                        <i class="fas fa-align-left"></i> Full Address
+                    </button>
+                </div>
+
+                <div id="separateMode" class="address-mode">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-home"></i> Street Number</label>
+                            <input type="text" id="streetNumber" placeholder="e.g., 517">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-road"></i> Street Name</label>
+                            <input type="text" id="streetName" placeholder="e.g., Oakwood Ave">
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-city"></i> City</label>
+                            <input type="text" id="city" placeholder="e.g., Raleigh">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-flag"></i> State</label>
+                            <input type="text" id="state" placeholder="e.g., NC">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label><i class="fas fa-mail-bulk"></i> Zip Code</label>
+                            <input type="text" id="zipCode" placeholder="e.g., 27601">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-globe"></i> Country</label>
+                            <input type="text" id="country" placeholder="e.g., USA" value="USA">
+                        </div>
+                    </div>
+                    <!-- NEW: Check Address Button for Separate Mode -->
+                    <button type="button" class="btn-check-address" onclick="checkAddress()" style="margin-top: 15px;">
+                        <i class="fas fa-check-circle"></i> Check Address
+                    </button>
+
+                    <!-- NEW: Address Validation Result -->
+                    <div id="addressValidationResult" class="address-validation-result"></div>
+                </div>
+
+                <div id="fullMode" class="address-mode" style="display: none;">
+                    <div class="form-group">
+                        <label><i class="fas fa-location-arrow"></i> Full Address</label>
+                        <input type="text" id="fullAddress" placeholder="e.g., 517 Oakwood Ave, Raleigh, NC 27601, USA">
+                        <small>Enter complete address including street, city, state, zip code, and country</small>
+
+                        <!-- NEW: Check Address Button -->
+                        <button type="button" class="btn-check-address" onclick="checkAddress()"
+                            style="margin-top: 10px;">
+                            <i class="fas fa-check-circle"></i> Check Address
+                        </button>
+
+                        <!-- NEW: Address Validation Result -->
+                        <div id="addressValidationResult" class="address-validation-result"></div>
+                    </div>
+                </div>
+
+                <div class="form-divider"></div>
+
+                <div class="search-params">
+                    <h3><i class="fas fa-cog"></i> Search Parameters</h3>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-circle"></i> Search Radius (miles)</label>
+                        <input type="number" id="searchRadius" min="0.5" max="3" step="0.5" value="3">
+                        <small>Maximum 3 miles allowed</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-layer-group"></i> Select POI Categories (Max 15)</label>
+                        <!-- NEW: Select All / Deselect All Buttons -->
+                        <div class="poi-bulk-actions">
+                            <button type="button" class="bulk-action-btn select-all" onclick="selectAllPOIs()">
+                                <i class="fas fa-check-double"></i> Select All
+                            </button>
+                            <button type="button" class="bulk-action-btn deselect-all" onclick="deselectAllPOIs()">
+                                <i class="fas fa-times-circle"></i> Deselect All
+                            </button>
+                        </div>
+                        <div id="poiCategories" class="poi-categories"></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">
+                    <i class="fas fa-search"></i> Start Analysis
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- At the end, before </body> -->
+    <script src="../js/auth-check.js"></script>
+    <script>
+        // Check if user is authenticated
+        document.addEventListener('DOMContentLoaded', function () {
+            checkUserAuth();
+        });
+    </script>
+    <script src="/js/dashboard.js"></script>
+
+
+</body>
+
+</html>

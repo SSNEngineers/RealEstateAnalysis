@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Analysis - SSN AI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/styles/user-analysis.css">
+    <style>
+        #pdfLogo {
+            display: none;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- ✅ FIXED AUTH CHECK SCRIPT -->
+    <script>
+        function checkUserAccess() {
+            // ✅ CORRECT: Look for 'user' and 'token' (not 'ssnai_user')
+            const user = sessionStorage.getItem('user') || localStorage.getItem('user');
+            const token = sessionStorage.getItem('token') || localStorage.getItem('token');
+            
+            // Check if user is authenticated
+            if (!user || !token) {
+                console.warn("❌ No authentication found - redirecting to signin");
+                alert("User login required. Redirecting to login.");
+                window.location.href = 'signup.html';
+                return false;
+            }
+            
+            console.log("✅ User authenticated:", JSON.parse(user).username);
+            return true;
+        }
+        
+        // Run check immediately when page loads
+        document.addEventListener('DOMContentLoaded', checkUserAccess);
+    </script>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="dashboard.html" class="nav-logo">
+                <i class="fas fa-map-marked-alt"></i>
+                <span>SSN AI</span>
+            </a>
+
+            <button class="btn-info" onclick="showDisclaimerPopup()" title="Important Information">
+                <i class="fas fa-info-circle"></i>
+            </button>
+            
+            <button class="btn-how-to-use" onclick="showHowToUsePopup()" title="How to Use">
+                <i class="fab fa-youtube"></i> How to Use
+            </button>
+
+            <div class="nav-actions">
+                <button class="btn-back" onclick="window.location.href='dashboard.html'">
+                    <i class="fas fa-arrow-left"></i> Back to Dashboard
+                </button>
+                <button class="btn-export" id="exportBtn" onclick="exportPDF()">
+                    <i class="fas fa-file-pdf"></i> Export PDF
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <img src="/Images/Real+Estate.gif" alt="Analyzing" class="loading-gif">
+            <h2>Analyzing Your Location...</h2>
+            <p>Please wait while we process your site analysis</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="main-content" style="display: none;">
+        <!-- Map Container -->
+        <div class="map-container" id="mapContainer">
+            <canvas id="mapCanvas"></canvas>
+        </div>
+
+        <!-- Right Panel -->
+        <div id="rightPanel" class="right-panel">
+            <div class="panel-header">
+                <h3><i class="fas fa-info-circle"></i> Analysis Details</h3>
+                <button class="btn-search-poi" onclick="showSearchPOIPopup()" title="Search for specific POI">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="panel-content" id="rightPanelContent">
+                <!-- Drag Mode -->
+                <div class="drag-control-section">
+                    <h4><i class="fas fa-hand-rock"></i> Drag Mode</h4>
+                    <button id="dragModeBtn" class="btn-drag-toggle" onclick="toggleDragMode()">
+                        <i class="fas fa-arrows-alt"></i>
+                        <span id="dragBtnText">Enable Drag Mode</span>
+                    </button>
+                    <div id="dragInstructions" class="drag-instructions">
+                        <i class="fas fa-check-circle"></i> Drag mode enabled! Click and drag any item to reposition.
+                    </div>
+                </div>
+
+                <!-- Resize Mode -->
+                <div class="resize-control-section">
+                    <h4><i class="fas fa-expand-arrows-alt"></i> Resize Mode</h4>
+                    <button id="resizeModeBtn" class="btn-resize-toggle" onclick="toggleResizeMode()">
+                        <i class="fas fa-expand-alt"></i>
+                        <span id="resizeBtnText">Enable Resize Mode</span>
+                    </button>
+                    <div id="resizeInstructions" class="resize-instructions">
+                        <i class="fas fa-check-circle"></i> Resize mode enabled! Click on any item to adjust size.
+                    </div>
+                </div>
+
+                <!-- Cluster Controls -->
+                <div class="cluster-controls-section">
+                    <h4><i class="fas fa-shapes"></i> Size and Shape Controls</h4>
+                    <div class="button-row">
+                        <button id="reshapeBtn" class="btn-cluster-control btn-reshape" onclick="toggleReshapeMode()">
+                            <i class="fas fa-vector-square"></i>
+                            <span>Reshape Clusters</span>
+                        </button>
+                        <button id="rotateBtn" class="btn-cluster-control btn-rotate" onclick="toggleRotateMode()">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Rotate Highways</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Break Lines -->
+                <div class="break-lines-section">
+                    <h4><i class="fas fa-cut"></i> Break Lines</h4>
+                    <button id="breakLinesBtn" class="btn-break-lines-toggle" onclick="toggleBreakLinesMode()">
+                        <i class="fas fa-scissors"></i>
+                        <span id="breakLinesBtnText">Break Lines</span>
+                    </button>
+                    <div id="breakLinesInstructions" class="break-lines-instructions">
+                        <i class="fas fa-check-circle"></i>
+                        <strong>Break Lines mode enabled!</strong><br>
+                        <small>
+                            • Click on dragged lines to select<br>
+                            • Click on line to add break point<br>
+                            • Right-click or press <kbd>S</kbd> to release<br>
+                            • Press <kbd>ESC</kbd> to restore original
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <h4><i class="fas fa-map-marker-alt"></i> Location</h4>
+                <p id="locationInfo">Loading...</p>
+            </div>
+            <div class="info-section">
+                <h4><i class="fas fa-circle"></i> Search Area</h4>
+                <p id="searchArea">Loading...</p>
+            </div>
+
+            <div id="poiSections"></div>
+            <div id="highwaySection"></div>
+        </div>
+    </div>
+
+    <script type="module" src="/js/user-analysis.js"></script>
+    <img id="pdfLogo" src="/Images/image.png" alt="Company Logo" style="display:none;">
+</body>
+
+</html>
